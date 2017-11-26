@@ -1,5 +1,5 @@
 {
-    "version": "2.0.0",
+    "version": "2.0.1",
     "summary": "Repeatedly apply a function to a value.",
     "repository": "https://github.com/JohnBugner/elm-loop.git",
     "license": "BSD3",
