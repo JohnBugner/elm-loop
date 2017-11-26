@@ -1,9 +1,9 @@
-module Loop exposing (while, until)
+module Loop exposing (while, for)
 
-{-| Repeatedly apply a function to a value while or until a predicate holds.
+{-| Repeatedly apply a function to a value.
 
 # Looping
-@docs while, until
+@docs while, for
 -}
 
 {-| Repeatedly apply a function to a value *while* a predicate holds.
@@ -16,9 +16,17 @@ while p f v =
     then while p f (f v)
     else v
 
-{-| Repeatedly apply a function to a value *until* a predicate holds.
+{-| Repeatedly apply a function to a value `n` times.
 
-    until (\ n -> n > 10) ((+) 5) 2 == 12
+    for 3 ((+) 5) 2 == 17
 -}
-until : (a -> Bool) -> (a -> a) -> a -> a
-until p = while (not << p)
+for : Int -> (a -> a) -> a -> a
+for =
+    let
+        for_ : Int -> Int -> (a -> a) -> a -> a
+        for_ i n f v =
+            if i < n
+            then for_ (i + 1) n f (f v)
+            else v
+    in
+        for_ 0
