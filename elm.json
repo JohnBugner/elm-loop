@@ -3,7 +3,7 @@
     "name": "JohnBugner/elm-loop",
     "summary": "Repeatedly apply a function to a value.",
     "license": "BSD-3-Clause",
-    "version": "2.0.2",
+    "version": "2.1.0",
     "exposed-modules": [
         "Loop"
     ],
